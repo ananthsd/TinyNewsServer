@@ -11,3 +11,6 @@ Create a file named `newscatcher_api_key` with the following format:
 
 To get data into the database [schema found here](https://github.com/ananthsd/TinyNewsSchema) use the `locally_store` and `db_store_from_local` functions. Currently they are separated, but they can be trivially chained and automated.
 We current don't do this for testing purposes and to minimize the amount of API calls we do.
+
+
+To run the server, run the following command `FLASK_APP=server.py flask run`
