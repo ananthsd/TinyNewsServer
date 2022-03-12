@@ -9,5 +9,5 @@ Create a file named `newscatcher_api_key` with the following format:
 
 `{"api-key":"<YOUR_API_KEY>"}`
 
-To get data into the database (schema found here) [] use the `locally_store` and `db_store_from_local` functions. Currently they are separated, but they can be trivially chained and automated.
+To get data into the database [schema found here](https://github.com/ananthsd/TinyNewsSchema) use the `locally_store` and `db_store_from_local` functions. Currently they are separated, but they can be trivially chained and automated.
 We current don't do this for testing purposes and to minimize the amount of API calls we do.
