@@ -23,7 +23,7 @@ def helloWorld():
 
 @app.route('/articles/<category>', methods=['GET'])
 def getArticles(category):
-    print(category_mapping)
+    # print(category_mapping)
     if not (category.lower() in category_mapping):
         return 'Bad category', 400
     
@@ -37,13 +37,13 @@ def getArticles(category):
     
     cur = conn.cursor()
     query = """SELECT * FROM Article WHERE primary_category = %s ORDER BY article_time DESC LIMIT %s;"""
-    print(category_mapping[category.lower()])
+    # print(category_mapping[category.lower()])
     cur.execute(query,(category_mapping[category.lower()],limit))
     
     
     data = cur.fetchmany(limit)
 
-    print(data)
+    # print(data)
 
     articles = []
     for article in data:
@@ -53,7 +53,7 @@ def getArticles(category):
         })
     
     jsonOut = json.dumps(articles, indent=4, sort_keys=True, default=str)
-    print(jsonOut)
+    # print(jsonOut)
 
     return jsonOut
 
@@ -77,7 +77,7 @@ def getAllArticles():
     
     data = cur.fetchmany(limit)
 
-    print(data)
+    # print(data)
 
     articles = []
     for article in data:
@@ -87,6 +87,6 @@ def getAllArticles():
         })
     
     jsonOut = json.dumps(articles, indent=4, sort_keys=True, default=str)
-    print(jsonOut)
+    # print(jsonOut)
 
     return jsonOut
