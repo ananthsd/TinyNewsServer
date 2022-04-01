@@ -30,7 +30,7 @@ def getArticles(category):
     limit = request.args.get('limit')
     if limit == None:
         limit = 50
-
+    limit = int(limit)
     if limit > 1000:
         limit = 1000
     
