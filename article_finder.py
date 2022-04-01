@@ -29,12 +29,14 @@ def db_get_category_mapping(connection):
     category_cursor.close()
     return mapping
 def db_store_from_local(categories):
+    f = open("postgres_info.json").read()
+    f = json.loads(f)
     conn = psycopg2.connect(
-    host='127.0.0.1',
-    port= '5432',
-    database="postgres",
-    user="postgres",
-    password="tinynews")
+    host = f['host'],
+    port = f['port'],
+    database = f['database'],
+    user = f['user'],
+    password = f['password'])
     cur = conn.cursor()
     category_mapping = db_get_category_mapping(conn)
     # print(category_mapping)
@@ -62,5 +64,5 @@ def db_store_from_local(categories):
 
 
 # locally_store(['sports, gaming','Food'])
-# db_store_from_local(["sports","gaming","Food"])
-db_store_from_local(["Food"])
+db_store_from_local(["Sports","Gaming","Food"])
+# db_store_from_local(["Food"])
