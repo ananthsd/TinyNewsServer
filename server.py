@@ -57,6 +57,14 @@ def getArticles(category):
 
     return jsonOut
 
+@app.route('/categories', methods=['GET'])
+def getCategories():
+    print(category_mapping)
+    jsonOut = json.dumps(category_mapping, indent=4, sort_keys=True, default=str)
+    # print(jsonOut)
+
+    return jsonOut
+
 
 @app.route('/articles/all', methods=['GET'])
 def getAllArticles():
