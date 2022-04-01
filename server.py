@@ -5,13 +5,14 @@ import psycopg2
 import article_finder
 
 app = Flask(__name__)
-
+f = open("postgres_info.json").read()
+f = json.loads(f)
 conn = psycopg2.connect(
-    host='127.0.0.1',
-    port= '5432',
-    database="postgres",
-    user="postgres",
-    password="tinynews")
+    host = f['host'],
+    port = f['port'],
+    database = f['database'],
+    user = f['user'],
+    password = f['password'])
 category_mapping = article_finder.db_get_category_mapping(conn)
 
 @app.route('/', methods=['GET'])

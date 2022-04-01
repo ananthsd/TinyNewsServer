@@ -64,5 +64,5 @@ def db_store_from_local(categories):
 
 
 # locally_store(['sports, gaming','Food'])
-db_store_from_local(["Sports","Gaming","Food"])
+# db_store_from_local(["Sports","Gaming","Food"])
 # db_store_from_local(["Food"])
