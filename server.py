@@ -48,8 +48,8 @@ def getArticles(category):
     articles = []
     for article in data:
         articles.append({
-            "article_title":article[0], "article_url":article[1], "article_picture":article[2], "article_text":article[3], "article_time":article[4],
-                 "primary_category":article[5], "clean_url":article[6], "categories":article[7]
+            "article_id": article[0], "article_title":article[1], "article_url":article[2], "article_picture":article[3], "article_text":article[4], "article_time":article[5],
+                 "primary_category":article[6], "clean_url":article[7], "categories":article[8]
         })
     
     jsonOut = json.dumps(articles, indent=4, sort_keys=True, default=str)
@@ -88,10 +88,11 @@ def getAllArticles():
     # print(data)
 
     articles = []
+
     for article in data:
         articles.append({
-            "article_title":article[0], "article_url":article[1], "article_picture":article[2], "article_text":article[3], "article_time":article[4],
-                 "primary_category":article[5], "clean_url":article[6], "categories":article[7]
+            "article_id": article[0], "article_title":article[1], "article_url":article[2], "article_picture":article[3], "article_text":article[4], "article_time":article[5],
+                 "primary_category":article[6], "clean_url":article[7], "categories":article[8]
         })
     
     jsonOut = json.dumps(articles, indent=4, sort_keys=True, default=str)
