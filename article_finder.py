@@ -1,6 +1,6 @@
 import requests
 import json
-
+import time
 import psycopg2
 from datetime import datetime
 
@@ -17,6 +17,7 @@ def locally_store(categories):
         f = open(category+".json", "a")
         f.write(json.dumps(r.json()))
         f.close()
+        time.sleep(1.5)
 
 def db_get_category_mapping(connection):
     category_cursor = connection.cursor()
@@ -64,5 +65,16 @@ def db_store_from_local(categories):
 
 
 # locally_store(['sports, gaming','Food'])
+# locally_store([
+# 'Health',
+# 'Lifestyles',
+# 'Politics',
+# 'Science'])
 # db_store_from_local(["Sports","Gaming","Food"])
-# db_store_from_local(["Food"])
+# db_store_from_local([
+# 'Economics',
+# 'Entertainment',
+# 'Health',
+# 'Lifestyles',
+# 'Politics',
+# 'Science',])
