@@ -103,7 +103,14 @@ def getAllArticles():
 @app.route('/articles/preference', methods=['GET'])
 def getArticlesByPreference():
     # print(category_mapping)
-    if  request.args.getlist('categories') == None and request.args.getlist('broadcasters') == None:
+    categories = request.args.getlist('categories')
+    broadcasters = request.args.getlist('broadcasters')
+    # print(category_mapping)
+    # print(categories)
+    # print(broadcasters)
+    has_categories = categories != None and categories != []
+    has_broadcasters = broadcasters != None and broadcasters != []
+    if  (not has_categories) and (not has_broadcasters):
         return 'Missing Argument(s) {categories or broadcasters}', 400
     
     limit = request.args.get('limit')
@@ -113,13 +120,7 @@ def getArticlesByPreference():
     if limit > 1000:
         limit = 1000
 
-    categories = request.args.getlist('categories')
-    broadcasters = request.args.getlist('broadcasters')
-    print(category_mapping)
-    print(categories)
-    print(broadcasters)
-    has_categories = categories != None and categories != []
-    has_broadcasters = broadcasters != None and broadcasters != []
+    
 
     if has_categories:
         categories2 = []
